@@ -26,8 +26,10 @@ export default function App() {
     setError('');
     setRecipe(null);
 
+    const API_URL = import.meta.env.VITE_API_URL || '';
+
     try {
-      const response = await fetch('/generate-recipe', {
+      const response = await fetch(`${API_URL}/generate-recipe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
